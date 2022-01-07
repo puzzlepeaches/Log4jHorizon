@@ -4,6 +4,8 @@ Exploiting CVE-2021-44228 in VMWare Horizon for remote code execution and more.
 
 * BLOG COMING SOON
 
+Code and README.md this time around are a little scatered. Updates coming!
+
 # Why?
 
 Proof of concepts for this vulnerability are scattered and have to be performed manually. This repository automates the exploitation process. See the blog post above for guidance on post-exploitation.
