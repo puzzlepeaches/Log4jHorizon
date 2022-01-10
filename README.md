@@ -2,7 +2,7 @@
 
 Exploiting CVE-2021-44228 in VMWare Horizon for remote code execution and more.
 
-* BLOG COMING SOON
+* [Crossing the Log4j Horizon - A Vulnerability With No Return](https://www.sprocketsecurity.com/blog/crossing-the-log4j-horizon-a-vulnerability-with-no-return)
 
 Code and README.md this time around are a little scatered. Updates coming!
 
